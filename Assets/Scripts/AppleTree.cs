@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -14,6 +14,8 @@ public class AppleTree : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
+        InvokeRepeating("DropApple", 2f, secondsBetweenAppleDrops) ;
         
     }
 
@@ -43,6 +45,13 @@ public class AppleTree : MonoBehaviour
             speed *= -1 ;
 
         }
+
+    }
+
+    void DropApple() {
+
+        GameObject apple = Instantiate(applePrefab)as GameObject ;
+        apple.transform.position = transform.position ;
 
     }
 }
