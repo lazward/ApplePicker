@@ -14,12 +14,30 @@ public class HighScore : MonoBehaviour
         
     }
 
+    void Awake() {
+
+        if (PlayerPrefs.HasKey("ApplePickerHighScore")) {
+
+            score = PlayerPrefs.GetInt("ApplePickerHighScore") ;
+
+        }
+
+        PlayerPref.SetInt("ApplePickerHighScore", score) ;
+
+    }
+
     // Update is called once per frame
     void Update()
     {
 
         Text gt = this.GetComponent<Text>() ;
         gt.text = "HighScore:" + score.ToString() ;
+
+        if (score > PlayerPrefs.GetInt("ApplePickerHighScore")) {
+
+            PlayerPrefs.SetInt("ApplePickerHighScore", score) ;
+
+        }
         
     }
 }
