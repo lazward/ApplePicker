@@ -22,7 +22,7 @@ public class HighScore : MonoBehaviour
 
         }
 
-        PlayerPref.SetInt("ApplePickerHighScore", score) ;
+        PlayerPrefs.SetInt("ApplePickerHighScore", score) ;
 
     }
 
